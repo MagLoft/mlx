@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title>MLX Android</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+      body {
+        margin: 0;
+        padding: 16px;
+        background: #F5F5F5;
+        font-family: Open Sans;
+      }
+      
+      .container {
+        margin: 0px auto;
+        background: #FFFFFF;
+        box-shadow: 0px 1px 3px rgba(0,0,0,0.15);
+      }
+      
+      h2 {
+        border-bottom: 1px solid #EEEEEE;
+        line-height: 48px;
+        margin: 0;
+        padding: 8px 16px;
+        font-weight: 100;
+      }
+      
+      main {
+        padding: 8px 16px;
+      }
+      
+      .btn {
+        background: #2A6E9F;
+        border: 1px solid rgba(0,0,0,0.15);
+        display: block;
+        text-align: center;
+        color: #FFF;
+        padding: 10px 12px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      
+      pre {
+        background: #F5F5F5;
+        font-family: monospace;
+        color: #444;
+        padding: 8px 12px;
+        font-size: 11px;
+        border: 1px solid rgba(0,0,0,0.15);
+        margin: 0px 0px 8px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>MLX Android</h2>
+      <main>
+        <p>Example Project using MLX Android</p>
+        <a id="location" class="btn">Request Location</a>
+        <pre id="locationResult">Click button to request location.</pre>
+        <a id="phone" class="btn">Call Phone</a>
+        <pre id="phoneResult">Click button to start phone call.</pre>
+      </main>
+    </div>
+  </body>
+  <script>    
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("location").addEventListener("click", function() {
+        MagLoftApi("location").then(function(result) {
+          document.getElementById("locationResult").innerHTML = `Latitude: ${result.latitude}\nLongitude: ${result.longitude}`;
+        });
+      });
+      document.getElementById("phone").addEventListener("click", function() {
+        const number = "081558038876‬"
+        MagLoftApi("phone", { number }).then(function() {
+          document.getElementById("phoneResult").innerHTML = `Calling: ${number}`;
+        });
+      });
+    });
+  </script>
+</html>

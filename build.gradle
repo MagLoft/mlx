@@ -1,0 +1,26 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:3.1.0"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
+    }
+}
+
+allprojects {    
+    repositories {
+        google()
+        jcenter()
+    }
+
+    project.ext {
+        compileSdkVersion = 27
+        buildToolsVersion = "27.0.3"
+        minSdkVersion = 14
+        targetSdkVersion = 27
+        versionCode = 1
+        versionName = "1.0.0"
+    }
+}
