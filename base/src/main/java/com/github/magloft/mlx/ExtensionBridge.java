@@ -13,6 +13,10 @@ public class ExtensionBridge {
     private final Activity activity;
     private final WebView webView;
 
+    public ExtensionBridge() {
+        
+    }
+
     public ExtensionBridge(Activity activity, WebView webView) {
         this.activity = activity;
         this.webView = webView;

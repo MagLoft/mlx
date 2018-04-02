@@ -14,8 +14,16 @@ import java.io.IOException;
 public class ExtensionClient extends WebViewClient {
     private final Activity activity;
 
+    public ExtensionClient() {
+
+    }
+
     public ExtensionClient(Activity activity) {
         this.activity = activity;
+    }
+    
+    public Activity getActivity() {
+        return this.activity;
     }
 
     @Override
@@ -34,7 +42,7 @@ public class ExtensionClient extends WebViewClient {
     public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
         if (request.getUrl().equals("asset://MagLoftApi.js")) {
             try {
-                return new WebResourceResponse("text/javascript", "utf-8", activity.getAssets().open("MagLoftApi.js"));
+                return new WebResourceResponse("text/javascript", "utf-8", getActivity().getAssets().open("MagLoftApi.js"));
             } catch (IOException ignored) {
             }
         }
@@ -46,7 +54,7 @@ public class ExtensionClient extends WebViewClient {
     public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
         if (url.equals("asset://MagLoftApi.js")) {
             try {
-                return new WebResourceResponse("text/javascript", "utf-8", activity.getAssets().open("MagLoftApi.js"));
+                return new WebResourceResponse("text/javascript", "utf-8", getActivity(.getAssets().open("MagLoftApi.js"));
             } catch (IOException ignored) {
             }
         }
