@@ -2,7 +2,7 @@
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
   <application android:allowBackup="true">
     <provider
-        android:authorities="com.github.magloft.mlx.location"
+        android:authorities="${applicationId}.com.github.magloft.mlx.location"
         android:exported="false"
         android:enabled="true"
         android:name=".Location" />
